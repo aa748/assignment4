@@ -4,14 +4,13 @@ use playersData;
 CREATE TABLE IF NOT EXISTS tblPlayersImport (
 
     `id` int AUTO_INCREMENT,
-    `Name` VARCHAR(17) CHARACTER SET utf8,
-    `Team` VARCHAR(6) CHARACTER SET utf8,
-    `Position` VARCHAR(20) CHARACTER SET utf8,
-    `Height_inches` INT,
-    `Weight_lbs` INT,
-    `Age` NUMERIC(4, 2),
+    `fldName` VARCHAR(17) CHARACTER SET utf8,
+    `fldTeam` VARCHAR(6) CHARACTER SET utf8,
+    `fldPosition` VARCHAR(20) CHARACTER SET utf8,
+    `fldHeight_inches` INT,
+    `fldWeight_lbs` INT,
+    `fldAge` NUMERIC(4, 2),
     PRIMARY KEY(`id`)
-
 );
 INSERT INTO tblPlayersImport (fldName,fldTeam,fldPosition,fldHeight_inches,fldWeight_lbs,fldAge) VALUES
     ('Adam Donachie',' "BAL"',' "Catcher"',74,180,22.99),

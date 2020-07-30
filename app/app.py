@@ -20,7 +20,7 @@ mysql.init_app(app)
 def index():
     user = {'username': 'Players Project'}
     cursor = mysql.get_db().cursor()
-    cursor.execute('SELECT * FROM tblplayersImport')
+    cursor.execute('SELECT * FROM tblPlayersImport')
     result = cursor.fetchall()
     return render_template('index.html', title='Home', user=user, players=result)
 
