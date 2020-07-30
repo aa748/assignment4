@@ -1,13 +1,13 @@
 This project is a homework assignment to teach how to get Pycharm setup with Docker, Flask, MySQL, and Postman
 
 # A
-![postman request output](screenshots/A.png) 
+![postman request output]() 
 
 # B
-![postman request output](screenshots/B.png) 
+![postman request output]() 
 
 # C
-![postman request output](screenshots/C.png) 
+![postman request output]() 
 
 # D
-![postman request output](screenshots/D.png) 
+![postman request output]() 
