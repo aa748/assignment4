@@ -28,7 +28,7 @@ def index():
 @app.route('/view/<int:player_id>', methods=['GET'])
 def record_view(player_id):
     cursor = mysql.get_db().cursor()
-    cursor.execute('SELECT * FROM tblplayersImport WHERE id=%s', player_id)
+    cursor.execute('SELECT * FROM tblPlayersImport WHERE id=%s', player_id)
     result = cursor.fetchall()
     return render_template('view.html', title='View Form', player=result[0])
 
@@ -36,7 +36,7 @@ def record_view(player_id):
 @app.route('/edit/<int:player_id>', methods=['GET'])
 def form_edit_get(player_id):
     cursor = mysql.get_db().cursor()
-    cursor.execute('SELECT * FROM tblplayersImport WHERE id=%s', player_id)
+    cursor.execute('SELECT * FROM tblPlayersImport WHERE id=%s', player_id)
     result = cursor.fetchall()
     return render_template('edit.html', title='Edit Form', player=result[0])
 
@@ -47,7 +47,7 @@ def form_update_post(player_id):
     inputData = (request.form.get('fldName'), request.form.get('fldTeam'), request.form.get('fldPosition'),
                  request.form.get('fldHeight_inches'), request.form.get('fldWeight_lbs'),
                  request.form.get('fldAge'), player_id)
-    sql_update_query = """UPDATE tblplayersImport t SET t.fldName = %s, t.fldTeam = %s, t.fldPosition = %s, t.fldHeight_inches = 
+    sql_update_query = """UPDATE tblPlayersImport t SET t.fldName = %s, t.fldTeam = %s, t.fldPosition = %s, t.fldHeight_inches = 
     %s, t.fldWeightlbs = %s, t.fldAge = %s WHERE t.id = %s """
     cursor.execute(sql_update_query, inputData)
     mysql.get_db().commit()
@@ -64,7 +64,7 @@ def form_insert_post():
     inputData = (request.form.get('fldName'), request.form.get('fldTeam'), request.form.get('fldPosition'),
                  request.form.get('fldHeight_inches'), request.form.get('fldWeight_lbs'),
                  request.form.get('fldAge'))
-    sql_insert_query = """INSERT INTO tblplayersImport (fldName,fldTeam,fldPosition,fldHeight_inches,fldWeight_lbs,fldAge) VALUES (%s, %s,%s, %s,%s, %s,%s) """
+    sql_insert_query = """INSERT INTO tblPlayersImport (fldName,fldTeam,fldPosition,fldHeight_inches,fldWeight_lbs,fldAge) VALUES (%s, %s,%s, %s,%s, %s,%s) """
 
     cursor.execute(sql_insert_query, inputData)
     mysql.get_db().commit()
@@ -73,7 +73,7 @@ def form_insert_post():
 @app.route('/delete/<int:player_id>', methods=['POST'])
 def form_delete_post(player_id):
     cursor = mysql.get_db().cursor()
-    sql_delete_query = """DELETE FROM tblplayersImport WHERE id = %s """
+    sql_delete_query = """DELETE FROM tblPlayersImport WHERE id = %s """
     cursor.execute(sql_delete_query, player_id)
     mysql.get_db().commit()
     return redirect("/", code=302)
@@ -82,7 +82,7 @@ def form_delete_post(player_id):
 @app.route('/api/v1/players', methods=['GET'])
 def api_browse() -> str:
     cursor = mysql.get_db().cursor()
-    cursor.execute('SELECT * FROM tblplayersImport')
+    cursor.execute('SELECT * FROM tblPlayersImport')
     result = cursor.fetchall()
     json_result = json.dumps(result);
     resp = Response(json_result, status=200, mimetype='application/json')
@@ -92,7 +92,7 @@ def api_browse() -> str:
 @app.route('/api/v1/players/<int:player_id>', methods=['GET'])
 def api_retrieve(player_id) -> str:
     cursor = mysql.get_db().cursor()
-    cursor.execute('SELECT * FROM tblplayersImport WHERE id=%s', player_id)
+    cursor.execute('SELECT * FROM tblPlayersImport WHERE id=%s', player_id)
     result = cursor.fetchall()
     json_result = json.dumps(result);
     resp = Response(json_result, status=200, mimetype='application/json')
@@ -106,7 +106,7 @@ def api_edit(player_id) -> str:
     inputData = (content['fldName'], content['fldTeam'], content['fldPosition'],
                  content['fldHeight_inches'], content['fldWeight_lbs'],
                  content['fldAge'], player_id)
-    sql_update_query = """UPDATE tblplayersImport t SET t.fldName = %s, t.fldTeam = %s, t.fldPosition = %s, t.fldHeight_inches = 
+    sql_update_query = """UPDATE tblPlayersImport t SET t.fldName = %s, t.fldTeam = %s, t.fldPosition = %s, t.fldHeight_inches = 
         %s, t.fldWeightlbs = %s, t.fldAge = %s WHERE t.id = %s """
     cursor.execute(sql_update_query, inputData)
     mysql.get_db().commit()
@@ -122,7 +122,7 @@ def api_add() -> str:
     inputData = (content['fldName'], content['fldTeam'], content['fldPosition'],
                  content['fldHeight_inches'], content['fldWeight_lbs'],
                  content['fldAge'])
-    sql_insert_query = """INSERT INTO tblplayersImport (fldName,fldTeam,fldPosition,fldHeight_inches,fldWeight_lbs,fldAge) VALUES (%s, %s,%s, %s,%s, %s,%s) """
+    sql_insert_query = """INSERT INTO tblPlayersImport (fldName,fldTeam,fldPosition,fldHeight_inches,fldWeight_lbs,fldAge) VALUES (%s, %s,%s, %s,%s, %s,%s) """
     cursor.execute(sql_insert_query, inputData)
     mysql.get_db().commit()
     resp = Response(status=201, mimetype='application/json')
@@ -131,7 +131,7 @@ def api_add() -> str:
 @app.route('/api/v1/players/<int:player_id>', methods=['DELETE'])
 def api_delete(player_id) -> str:
     cursor = mysql.get_db().cursor()
-    sql_delete_query = """DELETE FROM tblplayersImport WHERE id = %s """
+    sql_delete_query = """DELETE FROM tblPlayersImport WHERE id = %s """
     cursor.execute(sql_delete_query, player_id)
     mysql.get_db().commit()
     resp = Response(status=200, mimetype='application/json')
