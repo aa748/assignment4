@@ -1,11 +1,10 @@
 # Project Description
- A project to create a flask framework to serve flask jinja template files and send API requests using Postman
+A project to create a flask framework to serve flask jinja template files and send API requests using Postman
 
 ### Results:
 
 ### A. Project listing all records:
-
-![All records](screenshots/a.PNG)
+![All records](screenshots/a.PNG)  
 
 ### B. Project listing one record:
 ![record 2](screenshots/b.PNG)
@@ -19,3 +18,4 @@
 ### E. Delete a record:
 
 
+  
