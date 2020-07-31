@@ -3,11 +3,11 @@ A project to create a flask framework to serve flask jinja template files and se
 
 ### Results:
 
-### A. Project listing all records:
-![All records](screenshots/a.PNG)  
+### A. Project listing all records:  
+![All records](screenshots/all records.PNG)  
 
-### B. Project listing one record:
-![record 2](screenshots/b.PNG)
+### B. Project listing one record:  
+![record 2](screenshots/one record.PNG)
 
 ### C. Create a record:
 
