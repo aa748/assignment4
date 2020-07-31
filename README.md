@@ -1,13 +1,21 @@
-This project is a homework assignment to teach how to get Pycharm setup with Docker, Flask, MySQL, and Postman
+# Project Description
+ A project to create a flask framework to serve flask jinja template files and send API requests using Postman
 
-# A
-![postman request output]() 
+### Results:
 
-# B
-![postman request output]() 
+### A. Project listing all records:
 
-# C
-![postman request output]() 
+![All records](screenshots/a.PNG)
 
-# D
-![postman request output]() 
+### B. Project listing one record:
+![record 2](screenshots/b.PNG)
+
+### C. Create a record:
+
+
+### D. Edit a record:
+
+
+### E. Delete a record:
+
+
