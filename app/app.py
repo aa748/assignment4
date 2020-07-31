@@ -64,7 +64,7 @@ def form_insert_post():
     inputData = (request.form.get('fldName'), request.form.get('fldTeam'), request.form.get('fldPosition'),
                  request.form.get('fldHeight_inches'), request.form.get('fldWeight_lbs'),
                  request.form.get('fldAge'))
-    sql_insert_query = """INSERT INTO tblPlayersImport (fldName,fldTeam,fldPosition,fldHeight_inches,fldWeight_lbs,fldAge) VALUES (%s, %s,%s, %s,%s, %s,%s) """
+    sql_insert_query = """INSERT INTO tblPlayersImport (fldName,fldTeam,fldPosition,fldHeight_inches,fldWeight_lbs,fldAge) VALUES (%s, %s,%s, %s,%s, %s) """
 
     cursor.execute(sql_insert_query, inputData)
     mysql.get_db().commit()
